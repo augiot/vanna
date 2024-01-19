@@ -409,7 +409,7 @@ class VannaFlaskApp:
 </html>
 """
 
-    def run(self):
+    def run(self,port=8084):
         try:
             from google.colab import output
 
@@ -420,5 +420,5 @@ class VannaFlaskApp:
             print(eval_js("google.colab.kernel.proxyPort(8084)"))
         except:
             print("Your app is running at:")
-            print("http://localhost:8084")
-        self.flask_app.run(host="0.0.0.0", port=8084, debug=False)
+            print(f"http://localhost:{port}")
+        self.flask_app.run(host="0.0.0.0", port=port, debug=False)
